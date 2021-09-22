@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Wand Spell Recorder</title>
+  <link rel="icon"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACDklEQVR42pRSTWsTURR9HzOTSTBNGmOL2qQYMhorEpW6CSpGdOUH+Adcla5c1N/gxn11U9zooi4FwU1VRDTB1hYUorXENm2S0iGRJNNJM52ZzLzeF8daV6UXhnl3uOe8M/ccHI4eRwcpgg5YAjwMIdd1ORrzQrxljLfIa6FjiBB+FuAsikQUJcdxTdNmjBFCAn4BMAgjy3JgSPYJlGDLdroOIzDnl6Vnj+99fPVgYjxrbHcBNjF2+e30WOZC3Ni24cvd6ycf3s9wLUAnCEStbb6eKZyIRa5dUvpDfhBwKhFVhiOpRBQoQVtqOFwo1jXdAs38pwGTm1tWa5osURCaiB8OB+V3ueLNrBLuk6P9/mQs+H6uKknU2xIAKuvNH0vqiDIwmo5dTA8VS/Unzz8nhkLnTg+eTUaarc5yRRMp8QBA29A6jybfbOpGKOjLnI/Nfq18mi+vVRu3ryazo8fy3zZM2+0tDFE50AcvzGH4zo2RM8oAYKZefFlX9aNHDt26Eg+I7OnLn3rHpr21esYJIl2tNj/kf6VTg7Xf+mqlJfvEmdyKY5mlamttoy1Q8p/TgIUbp6ZnW62t/ELZtB2fRBdXGoUldWGxbnY9Pf8k8UsoUettQlBuvtzQDGht221vmd9LWttw/tjMqfeGjyeAcYPJX0JuLUa7016Wdqs3hjHeEzWK90krxvukdUeAAQDPwdu7GiOL2wAAAABJRU5ErkJggg=="
+    sizes="16x16" class="jsx-1695322707" />
+  <link rel="icon"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADUklEQVR42uxWSUwTURhuaaFlEahWKVIEoobIIrKvIXIgRkLEiwZuRA6e5WTiyYRoYqJy8MDJuBxMOBAlssgikVIqLUuhVZai7bSFlpallELb6czUvzN0xFIKlXDrn3eYmf9/3/e/733vtcx4fhLjJCOMccIRIggRHD/Y9NPtmpynj+rc3lDOLtXff0NnI8JZrY/rinKEboKAIZvWPWjpRlGcLqipvNjcWEjg2Nwv88NW8Y4D813Bp54Zxezy7ovbnZmeWJyXQmdRF97Z94Om7x9Z3IsOMSDR2O0ogePP307S6P8QwLQnrb3QnyfI93sNJXshKgpTGV6C2qp0HymKswUR4UzNkgUxbB24B3KlvqtfASgwHE7XqEzNi4ukUqwwZmneBQ824RkZl/hpyby9cysLhNC+aGIp0CZzOex37WM7dhRwQPT4WO7Gpp1KXb2SeCqGs76x831KS5K4a69fpidyIliFWQk4ho1MLQcicDixxvoSlwunFlFfl8s/Hf1XH4IQydSd/bOUStUVaWz27vQi0IfN1C5bEYPtEJs+ezXA8CoNC2pqKKIJ4MvwmEYk02xa7WCkuBhOWa5wV5+88wSGifa174fAvGZ70TZErYAgCMumnctlJwliU4XxdodLOq1zYUSfaJHcDAKsSQrLys84C/qMyo1HOmgdXdNSOQIITFI0hwOrKPD4Z0yuc5LW7BpSuUm35Wee4/Mii7ME4WEMrdGKGG1HIgCPtrzsBxcByp2abPBPeUEKPA9LNVSBCllf0KzDF+igujSlIlcA7Yv9tX/gVXH3Vo7eYIEeE/jRN6vSczMFGE6IxxG6oPubyiMSjt8oS76WfgYIJDOmIAg+9ipThTxqq5ubytmsMMW80WJ10AWDEo0TdQEBPxbs49YZtxDjdhAEKvVqz9A85aaoyHB4EHn1ocJqQ8UTehzHoHdP+wpT0Ldp23sJ6sIYu0cXToDWp+CLWE1gOMUhUZiDJlhesXb0KEm3EGr9hs6w6VMw+dNsWrMB+pLJpl3Z+Z/fg9ftE9vktSGSIfuzwDw4pg/c/iEEcBF96JwBiYaliN+Cr+MGFMVGlasBQFjcqNgA6bnfq3CRfR5a8Ju12TEwz4LOFgCBGfpnFyI4dvwRYABUXx5k9fVIvwAAAABJRU5ErkJggg=="
+    sizes="32x32" class="jsx-1695322707" />
+  <link rel="icon"
+    href="data:image/png;base64,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"
+    sizes="96x96" class="jsx-1695322707" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- p5 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+
+  <!-- BLE -->
+  <script src="https://unpkg.com/p5ble@latest/dist/p5.ble.min.js"></script>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style/magic.css">
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <form>
+      <div class="form-group row">
+        <label for="txtSpellName" class="col-sm-2 col-form-label">Spell Name</label>
+        <input type="texr" class="col-sm-2  form-control" id="txtSpellName" value="Circle">
+        <select id="selectSpellAttempt">
+          <option value="1">Novice</option>
+          <option value="2">Student</option>
+          <option value="3">Genius Student</option>
+          <option value="4">spellcaster</option>
+          <option value="5">Wizard</option>
+          <option value="6">Mystic</option>
+          <option value="7">Sorcerer</option>
+          <option value="8">Dumbledore</option>
+          <option value="9">Warlock</option>
+          <option value="10">Mystic Theurge</option>
+        </select>
+        <button type="button" id="btnTrain" class="col-sm-2  btn btn-primary">Train Spell</button>
+      </div>
+      <div class="form-group row">
+        <button type="button" id="btnSaveToFile" class="col-sm-2  btn btn-primary">Save To File</button>
+      </div>
+      <div class="form-group row">
+        <button type="button" id="connectButton" class="col-sm-2  btn btn-primary">Connect Wand via BLE</button>
+      </div>
+      <div class="form-group row">
+        <button type="button" id="btnWand" class="col-sm-2  btn btn-primary">Wand</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col">
+
+      </div>
+      <div class="col">
+        <div class="alert alert-info" role="alert" id="lblAcceleration">
+        </div>
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="javascript/CircularBuffer.js"></script>
+  <script src="javascript/magic.js"></script>
+</body>
+
+</html>
